@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="variable"
+            type="com.muklasr.edittextinrecyclerviewsandbox.model.Variable" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="4dp">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@={variable.name}"
+            app:layout_constraintBottom_toBottomOf="@id/etValue"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etValue"
+            app:layout_constraintTop_toTopOf="@id/etValue"
+            tools:text="Variable Name" />
+
+        <EditText
+            android:id="@+id/etValue"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="@={variable.value}"
+            app:layout_constraintRight_toRightOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={variable.unit}"
+            app:layout_constraintBottom_toBottomOf="@id/etValue"
+            app:layout_constraintLeft_toRightOf="@id/etValue"
+            app:layout_constraintTop_toTopOf="@id/etValue"
+            tools:text="/Unit" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/etValue"
+            app:layout_constraintLeft_toLeftOf="@id/etValue"
+            app:layout_constraintRight_toRightOf="@id/etValue"
+            app:layout_constraintTop_toTopOf="@id/etValue" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
